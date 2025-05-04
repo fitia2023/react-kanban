@@ -1,0 +1,29 @@
+name : prod kanban
+
+on:
+  push:
+    branches: [main,dev]
+  pull_request:
+    branches: [main,dev]
+
+jobs:
+  build_install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥Clone le repo
+        uses: actions/checkout@v4
+
+      - name: 🔧Intall Node
+        uses: actions/checkout@v4
+        with:
+          node-version: 22
+
+      - name: 📦Installer les dépendances
+        run: npm install      
+
+      - name: 🛠️ Builder le projet
+        run: npm run build
+        
+      - name: 🚀 Déploiement avec Vercel CLI
+        run: vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
