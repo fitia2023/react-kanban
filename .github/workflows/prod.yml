@@ -25,5 +25,8 @@ jobs:
       - name: 🛠️ Builder le projet
         run: npm run build
         
+      - name: 🧰 Installer Vercel CLI
+        run: npm install -g vercel
+        
       - name: 🚀 Déploiement avec Vercel CLI
         run: vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
