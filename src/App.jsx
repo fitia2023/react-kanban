@@ -3,7 +3,9 @@ import "./App.css";
 function App() {
   return (
     <>
-      <h1 className="text-3xl text-sky-500 font-bold underline">Kanban</h1>
+      <div className="min-h-screen bg-violet-950 text-white">
+        <h1 className="text-3xl font-bold text-center p-10">Kanban</h1>
+      </div>
     </>
   );
 }
